@@ -1,14 +1,34 @@
 ﻿// Block1_C++.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
-
 #include <iostream>
+#include <string>
 
-#include "Header.h"
+//#include "Header.h"
 
 int main()
 {
-    int result = sum(10, 20);
-    std::cout << "Result = " << result  << std::endl;
+   // int result = sum(10, 20);
+   // std::cout << "Result = " << result  << std::endl;
+
+
+	// Создание и инициализация переменной типа std::string
+	std::string myString = "Hello, C++";
+
+	// Вывод самой строковой переменной
+	std::cout << "String: " << myString << std::endl;
+
+	// Вывод длины строки
+	std::cout << "Length: " << myString.length() << std::endl;
+
+	// Вывод первого символа строки
+	std::cout << "First character: " << myString.front() << std::endl;
+
+	// Вывод последнего символа строки
+	std::cout << "Last character: " << myString.back() << std::endl;
+
+	return 0;
+
+
 }
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
