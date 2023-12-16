@@ -1,9 +1,20 @@
 ﻿// Block1_C++.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
 //
 #include <iostream>
-#include <string>
+//#include <string>
 
 //#include "Header.h"
+
+void printNumbers(int n, bool even)
+{
+    for (int i = 0; i <= n; i++)
+    {
+        if ((i % 2 == 0 && even) || (i % 2 != 0 && !even))
+        {
+            std::cout << i << " ";
+        }
+    }
+}
 
 int main()
 {
@@ -12,22 +23,32 @@ int main()
 
 
 	// Создание и инициализация переменной типа std::string
-	std::string myString = "Hello, C++";
+	// std::string myString = "Hello, C++";
 
 	// Вывод самой строковой переменной
-	std::cout << "String: " << myString << std::endl;
+	// std::cout << "String: " << myString << std::endl;
 
 	// Вывод длины строки
-	std::cout << "Length: " << myString.length() << std::endl;
+	// std::cout << "Length: " << myString.length() << std::endl;
 
 	// Вывод первого символа строки
-	std::cout << "First character: " << myString.front() << std::endl;
+	// std::cout << "First character: " << myString.front() << std::endl;
 
 	// Вывод последнего символа строки
-	std::cout << "Last character: " << myString.back() << std::endl;
+	// std::cout << "Last character: " << myString.back() << std::endl;
 
-	return 0;
+	// return 0;
+    const int n = 10;
 
+    // Печать четных чисел от 0 до n
+    printNumbers(n, true);
+
+    std::cout << std::endl;
+
+    // Печать нечетных чисел от 0 до n
+    printNumbers(n, false);
+
+    return 0;
 
 }
 
