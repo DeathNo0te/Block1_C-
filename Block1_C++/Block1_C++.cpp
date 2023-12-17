@@ -1,4 +1,6 @@
-﻿#include <iostream>
+﻿#define _CRT_SECURE_NO_WARNINGS
+#include <iostream>
+#include <ctime>
 
 // Chapter 14.4
 //#include <string>
@@ -32,9 +34,14 @@ int main()
 		cout << endl;
 	}
 
-	int calendarDay;
+	/* int calendarDay;
 	cout << "Введите текущее число календаря: ";
-	cin >> calendarDay;
+	cin >> calendarDay; */
+
+	time_t now = time(0);
+	tm* date = localtime(&now);
+	int day = date->tm_mday;
+	int calendarDay = day % n;
 
 	int rowSum = 0;
 	int rowIndex = calendarDay % n;
