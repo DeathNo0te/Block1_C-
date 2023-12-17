@@ -1,21 +1,92 @@
-﻿// Block1_C++.cpp : Этот файл содержит функцию "main". Здесь начинается и заканчивается выполнение программы.
-//
-#include <iostream>
-//#include <string>
+﻿#include <iostream>
 
+// Chapter 14.4
+//#include <string>
+using namespace std;
+
+// Chapter 13.4
 //#include "Header.h"
+
+
+// Chapter 16.5
+int main()
+{
+	setlocale(LC_ALL, "");
+	int n;
+	cout << "Введите размерность массива: ";
+	cin >> n;
+
+	int** arr = new int* [n];
+	for (int i = 0; i < n; i++) {
+		arr[i] = new int[n];
+		for (int j = 0; j < n; j++) {
+			arr[i][j] = i + j;
+		}
+	}
+
+	cout << "Двумерный массив:\n";
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < n; j++) {
+			cout << arr[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	int calendarDay;
+	cout << "Введите текущее число календаря: ";
+	cin >> calendarDay;
+
+	int rowSum = 0;
+	int rowIndex = calendarDay % n;
+	for (int j = 0; j < n; j++) {
+		rowSum += arr[rowIndex][j];
+	}
+
+	cout << "Сумма элементов в строке с индексом " << rowIndex << ": " << rowSum << endl;
+
+	for (int i = 0; i < n; i++) {
+		delete[] arr[i];
+	}
+	delete[] arr;
+
+	return 0;
+}
+
+/* Chapter 15.4
 
 void printNumbers(int n, bool even)
 {
-    for (int i = 0; i <= n; i++)
-    {
-        if ((i % 2 == 0 && even) || (i % 2 != 0 && !even))
-        {
-            std::cout << i << " ";
-        }
-    }
+	for (int i = 0; i <= n; i++)
+	{
+		if ((i % 2 == 0 && even) || (i % 2 != 0 && !even))
+		{
+			std::cout << i << " ";
+		}
+	}
 }
 
+
+int main()
+{
+	// return 0;
+	const int n = 10;
+
+	// Печать четных чисел от 0 до n
+	printNumbers(n, true);
+
+	std::cout << std::endl;
+
+	// Печать нечетных чисел от 0 до n
+	printNumbers(n, false);
+
+	return 0;
+
+}
+
+
+*/
+
+/* Chapter 14.4
 int main()
 {
    // int result = sum(10, 20);
@@ -37,28 +108,6 @@ int main()
 	// Вывод последнего символа строки
 	// std::cout << "Last character: " << myString.back() << std::endl;
 
-	// return 0;
-    const int n = 10;
+ }
 
-    // Печать четных чисел от 0 до n
-    printNumbers(n, true);
-
-    std::cout << std::endl;
-
-    // Печать нечетных чисел от 0 до n
-    printNumbers(n, false);
-
-    return 0;
-
-}
-
-// Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
-// Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
-
-// Советы по началу работы 
-//   1. В окне обозревателя решений можно добавлять файлы и управлять ими.
-//   2. В окне Team Explorer можно подключиться к системе управления версиями.
-//   3. В окне "Выходные данные" можно просматривать выходные данные сборки и другие сообщения.
-//   4. В окне "Список ошибок" можно просматривать ошибки.
-//   5. Последовательно выберите пункты меню "Проект" > "Добавить новый элемент", чтобы создать файлы кода, или "Проект" > "Добавить существующий элемент", чтобы добавить в проект существующие файлы кода.
-//   6. Чтобы снова открыть этот проект позже, выберите пункты меню "Файл" > "Открыть" > "Проект" и выберите SLN-файл.
+*/
