@@ -1,8 +1,12 @@
 ﻿#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 
+// Chapter 18.5
+#include <string>
+#include <algorithm>
+
 // Chapter 17.5
-#include <cmath>
+// #include <cmath>
 
 // Chapter 16.5
 // #include <ctime>
@@ -14,7 +18,80 @@ using namespace std;
 // Chapter 13.4
 //#include "Header.h"
 
-// Chapter 17.5
+// Chapter 18.5
+
+class Player {
+private:
+	string playerName;
+	int playerScore;
+
+
+public:
+	// Конструктор класса
+	Player() : playerName(playerName), playerScore(0) {}
+
+	Player(const string& name, int score) : playerName(name), playerScore(score) {}
+
+	// Метод для получения имени игрока
+	string getName() const {
+		return playerName;
+	}
+
+	// Метод для получения количества очков игрока
+	int getScore() const {
+		return playerScore;
+	}
+};
+
+// Функция сравнения для сортировки по убыванию очков
+bool comparePlayers(const Player& player1, const Player& player2) {
+	return player1.getScore() > player2.getScore();
+}
+
+int main() {
+
+	setlocale(LC_ALL, "");
+
+	int numPlayers;
+
+	// Получаем количество игроков от пользователя
+	cout << "Введите количество игроков: ";
+	cin >> numPlayers;
+
+	// Создаем динамический массив объектов Player
+	Player* players = new Player[numPlayers];
+
+	// Получаем от пользователя имена и очки игроков и сохраняем в массиве
+	for (int i = 0; i < numPlayers; ++i) {
+		string playerName;
+		int playerScore;
+
+		cout << "Введите имя игрока " << i + 1 << ": ";
+		cin >> playerName;
+
+		cout << "Введите количество очков для игрока " << i + 1 << ": ";
+		cin >> playerScore;
+
+		players[i] = Player(playerName, playerScore);
+	}
+
+	// Сортируем массив игроков по убыванию очков
+	sort(players, players + numPlayers, comparePlayers);
+
+	// Выводим отсортированные имена и очки игроков
+	cout << "\nОтсортированный список игроков:\n";
+	for (int i = 0; i < numPlayers; ++i) {
+		cout << "Игрок: " << players[i].getName() << ", Очки: " << players[i].getScore() << std::endl;
+	}
+
+	// Освобождаем выделенную память
+	delete[] players;
+
+	return 0;
+}
+
+
+/* Chapter 17.5
 
 class Vector {
 private:
@@ -51,7 +128,7 @@ int main() {
 
 	return 0;
 }
-
+*/
 
 /* Chapter 16.5
  int main()
