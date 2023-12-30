@@ -2,8 +2,8 @@
 #include <iostream>
 
 // Chapter 18.5
-#include <string>
-#include <algorithm>
+// #include <string>
+// #include <algorithm>
 
 // Chapter 17.5
 // #include <cmath>
@@ -18,7 +18,56 @@ using namespace std;
 // Chapter 13.4
 //#include "Header.h"
 
-// Chapter 18.5
+// Chapter 19.5
+class Animal {
+public:
+	virtual void voice() {
+		cout << "Animal voice!" << endl;
+	}
+};
+
+class Dog : public Animal {
+public:
+	void voice() override {
+		cout << "Woof!" << endl;
+	}
+};
+
+class Cat : public Animal {
+public:
+	void voice() override {
+		cout << "Meow!" << endl;
+	}
+};
+
+class Cow : public Animal {
+public:
+	void voice() override {
+		cout << "Moo!" << endl;
+	}
+};
+
+int main() {
+	Animal* animals[3];
+	animals[0] = new Dog();
+	animals[1] = new Cat();
+	animals[2] = new Cow();
+
+	for (int i = 0; i < 3; i++) {
+		animals[i]->voice();
+	}
+
+	// Очищение памяти
+	for (int i = 0; i < 3; i++) {
+		delete animals[i];
+	}
+
+	return 0;
+}
+
+
+
+/* Chapter 18.5
 
 class Player {
 private:
@@ -81,14 +130,14 @@ int main() {
 	// Выводим отсортированные имена и очки игроков
 	cout << "\nОтсортированный список игроков:\n";
 	for (int i = 0; i < numPlayers; ++i) {
-		cout << "Игрок: " << players[i].getName() << ", Очки: " << players[i].getScore() << std::endl;
+		cout << "Игрок: " << players[i].getName() << ", Очки: " << players[i].getScore() << endl;
 	}
 
 	// Освобождаем выделенную память
 	delete[] players;
 
 	return 0;
-}
+}*/
 
 
 /* Chapter 17.5
@@ -187,7 +236,7 @@ void printNumbers(int n, bool even)
 	{
 		if ((i % 2 == 0 && even) || (i % 2 != 0 && !even))
 		{
-			std::cout << i << " ";
+			cout << i << " ";
 		}
 	}
 }
@@ -201,7 +250,7 @@ int main()
 	// Печать четных чисел от 0 до n
 	printNumbers(n, true);
 
-	std::cout << std::endl;
+	cout << endl;
 
 	// Печать нечетных чисел от 0 до n
 	printNumbers(n, false);
@@ -217,23 +266,23 @@ int main()
 int main()
 {
    // int result = sum(10, 20);
-   // std::cout << "Result = " << result  << std::endl;
+   // cout << "Result = " << result  << endl;
 
 
-	// Создание и инициализация переменной типа std::string
-	// std::string myString = "Hello, C++";
+	// Создание и инициализация переменной типа string
+	// string myString = "Hello, C++";
 
 	// Вывод самой строковой переменной
-	// std::cout << "String: " << myString << std::endl;
+	// cout << "String: " << myString << endl;
 
 	// Вывод длины строки
-	// std::cout << "Length: " << myString.length() << std::endl;
+	// cout << "Length: " << myString.length() << endl;
 
 	// Вывод первого символа строки
-	// std::cout << "First character: " << myString.front() << std::endl;
+	// cout << "First character: " << myString.front() << endl;
 
 	// Вывод последнего символа строки
-	// std::cout << "Last character: " << myString.back() << std::endl;
+	// cout << "Last character: " << myString.back() << endl;
 
  }
 
